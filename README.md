@@ -157,8 +157,7 @@ function getWebviewContent(): string {
                     chibiImage.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
                 }, 300);
             });
-```
-```            
+                   
             function createSimpleParticles(x, y) {
                 const particles = ['✨', '🌟', '🎉', '💫', '⭐', '🔥', '💖', '🎊'];
                 
@@ -192,8 +191,7 @@ function getWebviewContent(): string {
                     }, 800);
                 }
             }
-```
-```            
+
             function createSimpleConfetti() {
                 const confettiTypes = ['🎀', '🌟', '💖', '⭐'];
                 
@@ -242,21 +240,9 @@ function getWebviewContent(): string {
                 motivationText.textContent = randomMessage;
             }, 10000);
             
-            setInterval(() => {
-                const randomImage = chibiImages[Math.floor(Math.random() * chibiImages.length)];
-                chibiImage.src = randomImage;
-            }, 15000);
-            
             console.log('Чибик с картинкой готов к работе!');
         </script>
     </body>
     </html>`;
-}
-```
-```
-export function deactivate() {
-    if (chibiPanel) {
-        chibiPanel.dispose();
-    }
 }
 ```
