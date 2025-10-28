@@ -1,0 +1,60 @@
+{
+  "name": "chibi-motivator",
+  "displayName": "Chibi Motivator",
+  "description": "A cute chibi companion that motivates you while coding",
+  "version": "1.0.0",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other",
+    "Themes",
+    "Visualization"
+  ],
+  "keywords": [
+    "chibi",
+    "motivation",
+    "companion",
+    "cute",
+    "anime",
+    "productivity"
+  ],
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielSwimmer/chibi-motivator"
+  },
+  "activationEvents": [
+    "onCommand:chibi-motivator.showChibi"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "chibi-motivator.showChibi",
+        "title": "Show Chibi Motivator",
+        "category": "Chibi"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "chibi-motivator.showChibi",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.60.0",
+    "@vscode/vsce": "^3.6.2",
+    "typescript": "^4.9.4"
+  }
+}
