@@ -1,44 +1,5 @@
 *Chibi-motivator*
-```
-import * as vscode from 'vscode';
-
-let chibiPanel: vscode.WebviewPanel | undefined;
-
-export function activate(context: vscode.ExtensionContext) {
-    console.log('Chibi Motivator is now active!');
-    
-    let disposable = vscode.commands.registerCommand('chibi-motivator.showChibi', () => {
-        showChibi(context);
-    });
-
-    context.subscriptions.push(disposable);
-    
-}
-```
-```
-function showChibi(context: vscode.ExtensionContext) {
-    if (chibiPanel) {
-        chibiPanel.reveal();
-        return;
-    }
-
-    chibiPanel = vscode.window.createWebviewPanel(
-        'chibiPanel',
-        'Chibi Companion 🎀',
-        vscode.ViewColumn.Beside,
-        {
-            enableScripts: true,
-            retainContextWhenHidden: true
-        }
-    );
-
-    chibiPanel.webview.html = getWebviewContent();
-
-    chibiPanel.onDidDispose(() => {
-        chibiPanel = undefined;
-    }, null, context.subscriptions);
-}
-```
+*Дуденко Даниил М3112*
 ```
 function getWebviewContent(): string {
     return `
@@ -57,8 +18,7 @@ function getWebviewContent(): string {
                 overflow: hidden;
                 font-family: 'Arial', sans-serif;
             }
-```
-```            
+         
             .chibi-container {
                 text-align: center;
                 position: relative;
@@ -81,8 +41,7 @@ function getWebviewContent(): string {
                 transform: scale(1.05);
                 box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             }
-```
-```            
+         
             .motivation-text {
                 color: white;
                 font-size: 22px;
