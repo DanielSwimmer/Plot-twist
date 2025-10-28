@@ -14,7 +14,8 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(disposable);
     
 }
-
+```
+```
 function showChibi(context: vscode.ExtensionContext) {
     if (chibiPanel) {
         chibiPanel.reveal();
@@ -37,7 +38,8 @@ function showChibi(context: vscode.ExtensionContext) {
         chibiPanel = undefined;
     }, null, context.subscriptions);
 }
-
+```
+```
 function getWebviewContent(): string {
     return `
     <!DOCTYPE html>
@@ -55,7 +57,8 @@ function getWebviewContent(): string {
                 overflow: hidden;
                 font-family: 'Arial', sans-serif;
             }
-            
+```
+```            
             .chibi-container {
                 text-align: center;
                 position: relative;
@@ -78,7 +81,8 @@ function getWebviewContent(): string {
                 transform: scale(1.05);
                 box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             }
-            
+```
+```            
             .motivation-text {
                 color: white;
                 font-size: 22px;
@@ -99,7 +103,6 @@ function getWebviewContent(): string {
                 margin-top: 10px;
             }
             
-            /* Простые частицы */
             .particle {
                 position: absolute;
                 pointer-events: none;
@@ -107,7 +110,6 @@ function getWebviewContent(): string {
                 z-index: 1000;
             }
             
-            /* Анимации */
             @keyframes bounce {
                 0%, 100% { transform: translateY(0) rotate(0deg); }
                 25% { transform: translateY(-15px) rotate(3deg); }
@@ -129,6 +131,8 @@ function getWebviewContent(): string {
             }
         </style>
     </head>
+```
+```    
     <body>
         <div class="chibi-container">
             <div class="motivation-text">Ты сможешь, давай! 💪</div>
@@ -146,10 +150,6 @@ function getWebviewContent(): string {
             const motivationText = document.querySelector('.motivation-text');
             
             const chibiImages = [
-                "https://i.pinimg.com/736x/12/46/c8/1246c8f99a0b4c29f0a803835086e866.jpg",  // Милый аниме чибик
-                "https://i.pinimg.com/736x/12/46/c8/1246c8f99a0b4c29f0a803835086e866.jpg",  // Другой чибик
-                "https://i.pinimg.com/736x/12/46/c8/1246c8f99a0b4c29f0a803835086e866.jpg",
-                "https://i.pinimg.com/236x/8c/8c/8c/8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c.jpg",
                 "https://i.pinimg.com/736x/12/46/c8/1246c8f99a0b4c29f0a803835086e866.jpg"
             ];
             
@@ -190,11 +190,6 @@ function getWebviewContent(): string {
                     motivationText.textContent = randomMessage;
                 }
                 
-                if (clickCount % 2 === 0) {
-                    const randomImage = chibiImages[Math.floor(Math.random() * chibiImages.length)];
-                    chibiImage.src = randomImage;
-                }
-                
                 chibiImage.style.transform = 'scale(1.2) rotate(15deg)';
                 chibiImage.style.boxShadow = '0 20px 40px rgba(255,107,107,0.5)';
                 
@@ -203,7 +198,8 @@ function getWebviewContent(): string {
                     chibiImage.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
                 }, 300);
             });
-            
+```
+```            
             function createSimpleParticles(x, y) {
                 const particles = ['✨', '🌟', '🎉', '💫', '⭐', '🔥', '💖', '🎊'];
                 
@@ -237,7 +233,8 @@ function getWebviewContent(): string {
                     }, 800);
                 }
             }
-            
+```
+```            
             function createSimpleConfetti() {
                 const confettiTypes = ['🎀', '🌟', '💖', '⭐'];
                 
@@ -271,7 +268,8 @@ function getWebviewContent(): string {
                     }, duration * 1000 + 100);
                 }
             }
-            
+```
+```            
             function getRandomColor() {
                 const colors = [
                     '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', 
@@ -295,7 +293,8 @@ function getWebviewContent(): string {
     </body>
     </html>`;
 }
-
+```
+```
 export function deactivate() {
     if (chibiPanel) {
         chibiPanel.dispose();
