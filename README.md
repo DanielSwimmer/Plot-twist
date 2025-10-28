@@ -1,5 +1,15 @@
 *Chibi-motivator*
-*Дуденко Даниил М3112*
+**Дуденко Даниил М3112**
+
+Функционал:
+
+1) Создание чиби-блока
+
+2) Возвожность взаимодействия с ним(при нажатии появляются конфетти)
+
+3) При простое случайно меняет текст, без вмешательства со стороны человека 
+
+**Основной блок кода, который вводит данные о чиби-блоке:**
 ```
 function getWebviewContent(): string {
     return `
@@ -91,6 +101,9 @@ function getWebviewContent(): string {
         </style>
     </head>
 ```
+
+**Тело проекта где, чибик получает свой вид, возможный набор фраз, а также начинает взаимодействовать с пользователем**
+
 ```    
     <body>
         <div class="chibi-container">
@@ -157,7 +170,7 @@ function getWebviewContent(): string {
                     chibiImage.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
                 }, 300);
             });
-                   
+
             function createSimpleParticles(x, y) {
                 const particles = ['✨', '🌟', '🎉', '💫', '⭐', '🔥', '💖', '🎊'];
                 
@@ -217,7 +230,6 @@ function getWebviewContent(): string {
                         confetti.style.opacity = '0';
                     }, 10);
                     
-                    // Удаление после анимации
                     setTimeout(() => {
                         if (confetti.parentNode) {
                             confetti.remove();
@@ -226,6 +238,8 @@ function getWebviewContent(): string {
                 }
             }
 ```
+**При бездействие человека, случайно меняет текст**
+
 ```            
             function getRandomColor() {
                 const colors = [
