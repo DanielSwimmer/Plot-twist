@@ -97,7 +97,6 @@ function getWebviewContent(): string {
                 margin-top: 10px;
             }
             
-            /* Простые частицы */
             .particle {
                 position: absolute;
                 pointer-events: none;
@@ -105,7 +104,6 @@ function getWebviewContent(): string {
                 z-index: 1000;
             }
             
-            /* Анимации */
             @keyframes bounce {
                 0%, 100% { transform: translateY(0) rotate(0deg); }
                 25% { transform: translateY(-15px) rotate(3deg); }
@@ -145,10 +143,6 @@ function getWebviewContent(): string {
             
             // Коллекция милых чибиков (можно добавить свои ссылки)
             const chibiImages = [
-                "https://i.pinimg.com/736x/12/46/c8/1246c8f99a0b4c29f0a803835086e866.jpg",  // Милый аниме чибик
-                "https://i.pinimg.com/736x/12/46/c8/1246c8f99a0b4c29f0a803835086e866.jpg",  // Другой чибик
-                "https://i.pinimg.com/736x/12/46/c8/1246c8f99a0b4c29f0a803835086e866.jpg",
-                "https://i.pinimg.com/236x/8c/8c/8c/8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c.jpg",
                 "https://i.pinimg.com/736x/12/46/c8/1246c8f99a0b4c29f0a803835086e866.jpg"
             ];
             
@@ -170,37 +164,25 @@ function getWebviewContent(): string {
                 
                 console.log('Чибик нажат! Создаём анимации...');
                 
-                // Эффект 1: Простой взрыв частиц
                 createSimpleParticles(event.clientX, event.clientY);
                 
-                // Эффект 2: Простые конфетти
                 createSimpleConfetti();
                 
-                // Эффект 3: Пульсация текста
                 motivationText.style.animation = 'none';
                 setTimeout(() => {
                     motivationText.style.animation = 'glow 2s infinite alternate';
                 }, 10);
                 
-                // Эффект 4: Сердцебиение чибика
                 chibiImage.style.animation = 'heartBeat 0.6s ease';
                 setTimeout(() => {
                     chibiImage.style.animation = 'bounce 2s infinite ease-in-out';
                 }, 600);
                 
-                // Эффект 5: Смена сообщения (каждые 3 клика)
                 if (clickCount % 3 === 0) {
                     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
                     motivationText.textContent = randomMessage;
                 }
                 
-                // Эффект 6: Смена картинки чибика (каждые 2 клика)
-                if (clickCount % 2 === 0) {
-                    const randomImage = chibiImages[Math.floor(Math.random() * chibiImages.length)];
-                    chibiImage.src = randomImage;
-                }
-                
-                // Эффект 7: Вращение и тень
                 chibiImage.style.transform = 'scale(1.2) rotate(15deg)';
                 chibiImage.style.boxShadow = '0 20px 40px rgba(255,107,107,0.5)';
                 
@@ -224,7 +206,6 @@ function getWebviewContent(): string {
                     
                     document.body.appendChild(particle);
                     
-                    // Простая анимация через transform
                     const angle = Math.random() * Math.PI * 2;
                     const distance = 30 + Math.random() * 70;
                     const moveX = Math.cos(angle) * distance;
@@ -232,13 +213,11 @@ function getWebviewContent(): string {
                     
                     particle.style.transition = 'all 0.8s ease-out';
                     
-                    // Запускаем анимацию
                     setTimeout(() => {
                         particle.style.transform = \`translate(\${moveX}px, \${moveY}px) scale(0)\`;
                         particle.style.opacity = '0';
                     }, 10);
                     
-                    // Удаление после анимации
                     setTimeout(() => {
                         if (particle.parentNode) {
                             particle.remove();
@@ -261,7 +240,6 @@ function getWebviewContent(): string {
                     
                     document.body.appendChild(confetti);
                     
-                    // Простая анимация падения
                     const duration = 1 + Math.random();
                     const moveY = 100 + Math.random() * 50;
                     const rotate = 180 + Math.random() * 180;
@@ -273,7 +251,6 @@ function getWebviewContent(): string {
                         confetti.style.opacity = '0';
                     }, 10);
                     
-                    // Удаление после анимации
                     setTimeout(() => {
                         if (confetti.parentNode) {
                             confetti.remove();
@@ -290,13 +267,11 @@ function getWebviewContent(): string {
                 return colors[Math.floor(Math.random() * colors.length)];
             }
             
-            // Автоматическая смена сообщения каждые 10 секунд
             setInterval(() => {
                 const randomMessage = messages[Math.floor(Math.random() * messages.length)];
                 motivationText.textContent = randomMessage;
             }, 10000);
             
-            // Автоматическая смена картинки каждые 15 секунд
             setInterval(() => {
                 const randomImage = chibiImages[Math.floor(Math.random() * chibiImages.length)];
                 chibiImage.src = randomImage;
